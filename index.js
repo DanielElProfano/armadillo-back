@@ -43,6 +43,7 @@ server.use(
     saveUninitialized: false,
     cookie: {
       maxAge: 360000,
+      sameSite: "none",
     },
     store: new MongoStore({ mongooseConnection: mongoose.connection }),
   })
