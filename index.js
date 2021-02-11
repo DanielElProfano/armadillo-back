@@ -27,6 +27,7 @@ server.use((req, res, next) => {
 });
 
 server.use(cors({
+  credentials: true,
   origin: 'http://localhost:3000',
 }));
 
