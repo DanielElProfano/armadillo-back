@@ -27,7 +27,7 @@ server.use((req, res, next) => {
 });
 
 server.use(cors({
-  origin: 'localhost:*',
+  origin: 'http://localhost:*',
 }));
 
 server.use(express.json());
