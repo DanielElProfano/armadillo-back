@@ -27,7 +27,7 @@ server.use((req, res, next) => {
 });
 
 server.use(cors({
-  origin: 'http://localhost:3000',
+  origin: '*',
 }));
 
 server.use(express.json());
@@ -51,7 +51,7 @@ server.use(passport.initialize());
 
 server.use(passport.session());
 
-server.use("/user", userRouter);
+server.use("/auth", userRouter);
 
 server.use('*', (req, res, next) => {
   const error = new Error('Route not found');
@@ -60,6 +60,7 @@ server.use('*', (req, res, next) => {
 })
 
 server.use((err, req, res, next) => {
+  console.log(err);
   return res.status(err.status || 500).json(err);
 });
 

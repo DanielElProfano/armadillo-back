@@ -12,6 +12,7 @@ module.exports = {
   },
 
   registerPost: (req, res, next) => {
+    console.log('Llega petición');
     passport.authenticate("register", (error, user) => {
       if (error) {
         return res.status(403).json({message: error.message});
