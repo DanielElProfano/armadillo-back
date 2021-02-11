@@ -27,8 +27,8 @@ server.use((req, res, next) => {
 });
 
 server.use(cors({
-  credentials: true,
   origin: 'http://localhost:3000',
+  credentials: true,
 }));
 
 server.use(express.json());
@@ -45,7 +45,6 @@ server.use(
       maxAge: 360000,
     },
     store: new MongoStore({ mongooseConnection: mongoose.connection }),
-    SameSite: 'none',
   })
 );
 
