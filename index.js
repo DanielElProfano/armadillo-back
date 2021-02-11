@@ -44,7 +44,7 @@ server.use(
       maxAge: 360000,
     },
     store: new MongoStore({ mongooseConnection: mongoose.connection }),
-    SameSite: 'lax',
+    SameSite: 'none',
   })
 );
 
