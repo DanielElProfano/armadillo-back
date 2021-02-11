@@ -43,7 +43,7 @@ server.use(
     saveUninitialized: false,
     cookie: {
       maxAge: 360000,
-      httpOnly: true,
+      httpOnly: false,
       secure: true,
       sameSite: "none",
     },
