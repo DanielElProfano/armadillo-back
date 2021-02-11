@@ -45,7 +45,7 @@ server.use(
       maxAge: 360000,
       httpOnly: false,
       secure: true,
-      sameSite: "none",
+      sameSite: "None",
     },
     store: new MongoStore({ mongooseConnection: mongoose.connection }),
   })
