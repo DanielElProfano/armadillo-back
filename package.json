@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js",
+    "dev": "nodenv -E .env.local --exec 'nodemon index.js'",
+    "dev:production": "nodenv -E .env.production --exec 'nodemon index.js'",
     "seed": "node seeds/petSeed.js & node seeds/otherSeed.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -23,6 +24,7 @@
     "passport-local": "^1.0.0"
   },
   "devDependencies": {
+    "node-env-run": "^4.0.2",
     "nodemon": "^2.0.6"
   }
 }
