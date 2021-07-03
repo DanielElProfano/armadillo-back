@@ -39,7 +39,6 @@ passport.use(
         }
 
         const validEmail = validate(email);
-
         if (!validEmail) {
           const error = new Error("Invalid Email");
           return done(error);
@@ -58,7 +57,6 @@ passport.use(
         console.log('REQ.BODY', req.body);
         const newUser = new User({
           email: email.toLowerCase(),
-          username: req.body.username,
           password: hash,
         });
 

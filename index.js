@@ -7,6 +7,7 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 
 const userRouter = require('./routes/user.routes');
+const rssRouter = require('./routes/rss.routes');
 
 require('dotenv').config();
 
@@ -27,7 +28,7 @@ server.use((req, res, next) => {
 });
 
 server.use(cors({
-  origin: ['http://localhost:3000', 'https://react-auth-upgrade.netlify.app'],
+  origin: ['http://localhost:3000'],
   credentials: true,
 }));
 
@@ -42,7 +43,7 @@ server.use(
     resave: false,
     saveUninitialized: false,
     cookie: {
-      maxAge: 360000,
+      maxAge: 36000000000,
       httpOnly: false,
       secure: false,
       sameSite: false,
@@ -55,7 +56,8 @@ server.use(passport.initialize());
 
 server.use(passport.session());
 
-server.use("/auth", userRouter);
+server.use("/", userRouter);
+server.use("/rss", rssRouter);
 
 server.use('*', (req, res, next) => {
   const error = new Error('Route not found');
